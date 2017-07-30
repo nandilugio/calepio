@@ -1,6 +1,6 @@
 # Calepio
 
-**TODO: Add description**
+Calepio is a suite of tools for the development of community driven dictionaries.
 
 ## Installation
 
