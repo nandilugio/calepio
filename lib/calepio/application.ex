@@ -4,12 +4,16 @@ defmodule Calepio.Application do
   @moduledoc false
 
   use Application
+  require Logger
 
   def start(_type, _args) do
+    Logger.info "Starting Calepio"
+
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: Calepio.Worker.start_link(arg)
       # {Calepio.Worker, arg},
+      Plug.Adapters.Cowboy.child_spec(:http, Calepio.Web.Router, [], [port: 4001])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
